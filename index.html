@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="full-screen-container">
+      <div class="card">
+        <div class="inputFeild">
+          <div class="title"><h1>KnapSack.</h1></div>
+          <div class="in">
+            <label for="">MWC</label>
+            <input type="number" class="input" min="0" max="23" />
+          </div>
+        </div>
+        <div class="statusFeild">
+          <div class="statusFeild">
+            <div class="status"></div>
+            <label for="">Status</label>
+          </div>
+          <div>
+            <select id="select" onchange="selectOption()">
+              <option class="opt">items</option>
+              <option class="opt">tomato</option>
+              <option class="opt">apples</option>
+              <option class="opt">banana</option>
+              <option class="opt">groundnut</option>
+              <option class="opt">beans</option>
+              <option class="opt">yam</option>
+              <option class="opt">cocoyam</option>
+              <option class="opt">bread</option>
+              <option class="opt">chocolate</option>
+              <option class="opt">butter</option>
+              <option class="opt">meat</option>
+              <option class="opt">fish</option>
+              <option class="opt">coconut</option>
+              <option class="opt">corn</option>
+              <option class="opt">vegetable</option>
+              <option class="opt">water</option>
+              <option class="opt">orange</option>
+              <option class="opt">grapes</option>
+              <option class="opt">pineaples</option>
+            </select>
+          </div>
+        </div>
+        <div class="KnapsackStatus">
+          <div class="itemDisplay">
+            <h5 class="itemClass"></h5>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="data">
+            <div class="cell">
+              <h6>Weight:</h6>
+              <p class="dataWeight"></p>
+            </div>
+            <div class="cell">
+              <h6>Value:</h6>
+              <p class="dataPrice"></p>
+            </div>
+          </div>
+          <div>
+            <button id="add">add</button>
+            <button id="done" onclick="getData()">done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
