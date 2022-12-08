@@ -24,22 +24,25 @@ let addButtonElement = document.getElementById("add");
 let optionElement = document.getElementsByTagName("option");
 let doneButtonElement = document.getElementById("done");
 let selectingElement = document.querySelectorAll(".select");
+let resetElement = document.querySelector(".title");
 
 function getData() {
   let inputValue = document.querySelector(".input").value;
   let sum = 0;
   let totalPrice = 0;
   let count = 0;
-  alert(inputValue);
   addButtonElement.addEventListener("click", () => {
-    if (count < itemList.length + 1 && Math.floor(sum) < inputValue) {
+    if ((count < itemList.length + 1 && Math.floor(sum) < inputValue) && sum + itemList[count+1].weight < inputValue) {
       sum += Math.ceil(itemList[count].weight);
+      if(Math.floor(sum) > inputValue){
+        count++
+      }
       totalPrice += itemList[count].value;
       document.querySelector(".itemDisplay").style.display = "block";
       document.querySelector(".itemClass").innerHTML += "Item Name:" + " " + itemList[count].name + "</br>" + "Price:" + itemList[count].value + "frs" + "</br>"+"<hr>";
       document.querySelector(".dataWeight").innerHTML = sum;
       document.querySelector(".dataPrice").innerHTML = totalPrice;
-      optionElement[count].style.display = "none";
+      optionElement[count+1].style.display = "none";
       console.log(sum);
     }
     else if (Math.floor(sum) == inputValue) {
@@ -53,5 +56,20 @@ function getData() {
     }
     count++;
   });
+  resetElement.addEventListener("click",()=>{
+    sum = 0;
+    totalPrice = 0;
+    addButtonElement.disabled = false;
+    document.querySelector(".itemDisplay").style.display = "none";
+    document.querySelector(".itemClass").innerHTML = null;
+    document.querySelector(".dataWeight").innerHTML = null;
+    document.querySelector(".dataPrice").innerHTML = "";
+    let inputValue = document.querySelector(".input").value="";
+    document.querySelector(".status").style.background = "green";
+    for (let i = 0; i <= count; i++){
+    optionElement[count].innerText = itemList[count].name;
+    }
+    count=0;
+  })
 
 }
